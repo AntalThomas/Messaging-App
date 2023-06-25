@@ -22,14 +22,12 @@
     padding-bottom: 10px;
     background-color: rgb(54, 54, 61);
     position: absolute;
-    top: 92px;
-    left: 435px;
     width: 300px;
 }
 
 .searchChats {
     height: 40px;
-    width: 200px;
+    width: 215px;
     background-color: lightgray;
     padding-left: 10px;
 }

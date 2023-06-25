@@ -5,6 +5,11 @@ import send from '../../images/send.svg'
 
 function sendMessage(e) {
     e.preventDefault()
+    const userInput = document.querySelector('.sendMessageInput').value
+    document.querySelector('.sendMessageInput').value = ""
+    
+
+    console.log(userInput)
 }
 
 
