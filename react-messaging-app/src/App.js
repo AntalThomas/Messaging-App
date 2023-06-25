@@ -1,18 +1,19 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom'
-import AllChats from './Components/Pages/AllChats'
-import Chat from './Components/Pages/Chat'
-import Home from './Components/Pages/Home'
-import SignUp from './Components/Pages/SignUp'
+import AllChatsPage from './Components/Pages/AllChats'
+import ChatPage from './Components/Pages/Chat'
+import HomePage from './Components/Pages/Home'
+import SignUpPage from './Components/Pages/SignUp'
+import React from 'react';
 
 function App() {
   return (
     <>
       <Routes>
-          <Route path="/allchats" element={ <AllChats /> } />
-          <Route path="/chat" element={ <Chat /> } />
-          <Route path="/signup" element={ <SignUp /> } />
-          <Route path="/" element={ <Home /> } />
+          <Route path="/allchats" element={ <AllChatsPage /> } />
+          <Route path="/chat" element={ <ChatPage /> } />
+          <Route path="/signup" element={ <SignUpPage /> } />
+          <Route path="/" element={ <HomePage /> } />
       </Routes>
     </>
   );

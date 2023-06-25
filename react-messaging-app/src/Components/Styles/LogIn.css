@@ -20,25 +20,27 @@ h2 {
 .inputs {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
 }
 
 input {
     display: flex;
-    width: 97%;
+    width: 93%;
     height: 50px;
     font-size: 1em;
     background-color: rgb(58, 58, 60);
     border: 0;
 }
 
-input:first-of-type {
+.loginInput:first-of-type {
     border-radius: 15px 15px 0 0;
+    padding-left: 20px;
 }
 
-input:last-of-type {
+.loginInput:last-of-type {
     border-radius: 0 0 15px 15px;
     margin-bottom: 2rem;
+    padding-left: 20px;
 }
 
 button, a {

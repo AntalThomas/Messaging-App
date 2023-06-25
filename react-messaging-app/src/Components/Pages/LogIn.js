@@ -1,8 +1,24 @@
 import DefaultLayout from "../Layout/DefaultLayout";
 import '../Styles/LogIn.css'
-import logo from '../../images/bubble.png'
+import logo from '../../images/bubble.svg'
 
-const LogIn = () => {
+const logIn = (e) => {
+    e.preventDefault()
+    const form = e.target
+    const data = Object.fromEntries(new FormData(form))
+
+    console.log(data)
+
+    // fetch('/api/sessions', {
+    //     method: 'POST',
+    //     headers: { 'Content-Type': 'application/json' },
+    //     body: JSON.stringify(data)
+    // })
+    // .then(res => res.json())
+    // .then(res => console.log(res))
+}
+
+const LogInPage = () => {
     return (
         <DefaultLayout>
             <div className="visual">
@@ -11,10 +27,10 @@ const LogIn = () => {
             </div>
 
             <div className="forms">
-                <form action="">
+                <form action="" onSubmit={ logIn }>
                     <div className="inputs">
-                        <input type="password" placeholder="Password" name="password"/>
-                        <input type="text" placeholder="Email" name="email"/>
+                        <input className="loginInput" type="text" placeholder="Email" name="email"/>
+                        <input className="loginInput" type="password" placeholder="Password" name="password"/>
                     </div>
                     
                     <button>Log In</button>
@@ -26,4 +42,4 @@ const LogIn = () => {
     )
 }
 
-export default LogIn
+export default LogInPage

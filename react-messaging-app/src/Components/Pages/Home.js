@@ -1,9 +1,14 @@
-import LogIn from './LogIn'
+// import { useState, useEffect } from 'react'
+import LogInPage from './LogIn'
 
-const Home = () => {
+function HomePage() {
+    // const [currentUser, setCurrentUser] = useState(null)
+    // const [allChats, setAllChats] = useState([])
+    // const [chats, setChats] = useState([])
+
     return (
-        <LogIn />
+        <LogInPage />
     )
 }
 
-export default Home
+export default HomePage

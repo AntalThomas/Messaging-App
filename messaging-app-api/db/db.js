@@ -1,15 +1,11 @@
 const pg = require('pg')
-
-// change this to your actual local database name
 const localDbName = 'messaging_app_db'
-
 let db;
+
 if (process.env.DATABASE_URL) {
     db = new pg.Pool({
         connectionString: process.env.DATABASE_URL,
-        ssl: {
-            rejectUnauthorized: false
-        }
+        ssl: { rejectUnauthorized: false }
     })
 } else {
     if (process.env.DEV_DB_PASSWORD) {
@@ -18,9 +14,7 @@ if (process.env.DATABASE_URL) {
             password: process.env.DEV_DB_PASSWORD
         })
     } else {
-        db = new pg.Pool({
-            database: localDbName
-        })
+        db = new pg.Pool({ database: localDbName })
     }
 }
 
