@@ -23,7 +23,7 @@ function signOut() {
 const AllChatsPage = () => {
     return (
         <DefaultLayout>
-            <section className="nav">
+            <section className="nav2">
                 <div className="userPictureBig2" onClick={ signOut }>A</div>
                 <input onChange={ searchFriends } className="searchChats" type="text" name="searchChats"/>
             </section>
