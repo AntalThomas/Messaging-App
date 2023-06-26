@@ -20,69 +20,29 @@ function signOut() {
     console.log('signout')
 }
 
-const AllChatsPage = ({ userName, userEmail }) => {
+const AllChatsPage = ({ userName, userEmail, userFriends }) => {
     return (
         <DefaultLayout>
             <section className="nav2">
-                <div className="userPictureBig2" onClick={ signOut }>A</div>
-                <input onChange={ searchFriends } className="searchChats" type="text" name="searchChats"/>
+                <div className="userPictureBig2" onClick={ signOut }>{ userName[0] }</div>
+                <input
+                    onChange={ searchFriends }
+                    className="searchChats"
+                    type="text"
+                    name="searchChats"
+                />
             </section>
 
-            <h1>
-                { console.log(userName, userEmail) }
-            </h1>
-
-
             <section onClick={ enterChat } className="allFriends">
-                <div className="friend" dataset="1">
-                    <div className="userPictureSmall">A</div>
-                    <div className="friendInfo">
-                        <h2>friend[name]</h2>
-                        <h3>MOST RECENT MESSAGE SENT HERE</h3>
+                { userFriends.map((friend, index) => 
+                    <div className="friend" key={ index }>
+                        <div className="userPictureSmall">A</div>
+                        <div className="friendInfo">
+                            <h2>{ friend }</h2>
+                            <h3>MOST RECENT MESSAGE SENT HERE</h3>
+                        </div>
                     </div>
-                </div>
-                <div className="friend" dataset="1">
-                    <div className="userPictureSmall">A</div>
-                    <div className="friendInfo">
-                        <h2>friend[name]</h2>
-                        <h3>MOST RECENT MESSAGE SENT HERE</h3>
-                    </div>
-                </div>
-                <div className="friend" dataset="1">
-                    <div className="userPictureSmall">A</div>
-                    <div className="friendInfo">
-                        <h2>friend[name]</h2>
-                        <h3>MOST RECENT MESSAGE SENT HERE</h3>
-                    </div>
-                </div>
-                <div className="friend" dataset="1">
-                    <div className="userPictureSmall">A</div>
-                    <div className="friendInfo">
-                        <h2>friend[name]</h2>
-                        <h3>MOST RECENT MESSAGE SENT HERE</h3>
-                    </div>
-                </div>
-                <div className="friend" dataset="1">
-                    <div className="userPictureSmall">A</div>
-                    <div className="friendInfo">
-                        <h2>friend[name]</h2>
-                        <h3>MOST RECENT MESSAGE SENT HERE</h3>
-                    </div>
-                </div>
-                <div className="friend" dataset="1">
-                    <div className="userPictureSmall">A</div>
-                    <div className="friendInfo">
-                        <h2>friend[name]</h2>
-                        <h3>MOST RECENT MESSAGE SENT HERE</h3>
-                    </div>
-                </div>
-                <div className="friend" dataset="1">
-                    <div className="userPictureSmall">A</div>
-                    <div className="friendInfo">
-                        <h2>friend[name]</h2>
-                        <h3>MOST RECENT MESSAGE SENT HERE</h3>
-                    </div>
-                </div>
+                )}
             </section>
         </DefaultLayout>
     )

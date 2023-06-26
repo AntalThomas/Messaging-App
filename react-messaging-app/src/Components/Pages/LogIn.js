@@ -16,13 +16,12 @@ const LogInPage = ({ setUserEmail, setUserName }) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(user => { 
-            console.log(user)
-            setUserEmail(user.email)
-            setUserName(user.name)
-            navigate("/allchats")
-        })
+            .then(res => res.json())
+            .then(user => {
+                setUserEmail(user.email)
+                setUserName(user.name)
+                navigate("/allchats")
+            })
     }
 
     return (
