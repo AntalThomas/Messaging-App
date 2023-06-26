@@ -29,49 +29,49 @@ const AllChatsPage = () => {
             </section>
 
             <section onClick={ enterChat } className="allFriends">
-                <div className="friend" dataSet="1">
+                <div className="friend" dataset="1">
                     <div className="userPictureSmall">A</div>
                     <div className="friendInfo">
                         <h2>friend[name]</h2>
                         <h3>MOST RECENT MESSAGE SENT HERE</h3>
                     </div>
                 </div>
-                <div className="friend" dataSet="1">
+                <div className="friend" dataset="1">
                     <div className="userPictureSmall">A</div>
                     <div className="friendInfo">
                         <h2>friend[name]</h2>
                         <h3>MOST RECENT MESSAGE SENT HERE</h3>
                     </div>
                 </div>
-                <div className="friend" dataSet="1">
+                <div className="friend" dataset="1">
                     <div className="userPictureSmall">A</div>
                     <div className="friendInfo">
                         <h2>friend[name]</h2>
                         <h3>MOST RECENT MESSAGE SENT HERE</h3>
                     </div>
                 </div>
-                <div className="friend" dataSet="1">
+                <div className="friend" dataset="1">
                     <div className="userPictureSmall">A</div>
                     <div className="friendInfo">
                         <h2>friend[name]</h2>
                         <h3>MOST RECENT MESSAGE SENT HERE</h3>
                     </div>
                 </div>
-                <div className="friend" dataSet="1">
+                <div className="friend" dataset="1">
                     <div className="userPictureSmall">A</div>
                     <div className="friendInfo">
                         <h2>friend[name]</h2>
                         <h3>MOST RECENT MESSAGE SENT HERE</h3>
                     </div>
                 </div>
-                <div className="friend" dataSet="1">
+                <div className="friend" dataset="1">
                     <div className="userPictureSmall">A</div>
                     <div className="friendInfo">
                         <h2>friend[name]</h2>
                         <h3>MOST RECENT MESSAGE SENT HERE</h3>
                     </div>
                 </div>
-                <div className="friend" dataSet="1">
+                <div className="friend" dataset="1">
                     <div className="userPictureSmall">A</div>
                     <div className="friendInfo">
                         <h2>friend[name]</h2>
