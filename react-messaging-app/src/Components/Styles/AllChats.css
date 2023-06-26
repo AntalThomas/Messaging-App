@@ -12,6 +12,7 @@
     height: 50px;
     border-radius: 40px;
     background-color: lightgray;
+    cursor: pointer;
 }
 
 .nav2 {

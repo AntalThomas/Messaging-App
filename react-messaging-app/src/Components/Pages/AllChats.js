@@ -1,26 +1,28 @@
 import DefaultLayout from "../Layout/DefaultLayout"
 import '../Styles/AllChats.css'
+import { useNavigate } from "react-router-dom"
 
-function enterChat(e) {
-    e.preventDefault()
-    const chat = e.target.closest('.friend')
+const AllChatsPage = ({ userName, userEmail, userFriends, setUserEmail, setUserName }) => {
+    let navigate = useNavigate()
 
-    if (!chat) console.log()
-    else console.log(chat)
-}
+    function enterChat(e) {
+        e.preventDefault()
+        const chat = e.target.closest('.friend')
+        !chat ? console.log() : console.log(chat)
+    }
+    
+    function searchFriends(e) {
+        e.preventDefault()
+        const searchFriendsText = e.target.value
+        console.log(searchFriendsText)
+    }
+    
+    function signOut() {
+        setUserEmail("")
+        setUserName("")
+        navigate("/")
+    }
 
-function searchFriends(e) {
-    e.preventDefault()
-    const searchFriendsText = e.target.value
-
-    console.log(searchFriendsText)
-}
-
-function signOut() {
-    console.log('signout')
-}
-
-const AllChatsPage = ({ userName, userEmail, userFriends }) => {
     return (
         <DefaultLayout>
             <section className="nav2">

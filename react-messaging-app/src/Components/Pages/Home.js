@@ -7,15 +7,15 @@ import React, { useState } from 'react'
 
 
 function HomePage () {
-    const [userName, setUserName] = useState('Jack')
+    const [userName, setUserName] = useState('')
     const [userEmail, setUserEmail] = useState('JackEmail')
-    const [userFriends, setUserFriend] = useState(["Jason", "Hugh", "Blake", "Kade"])
+    const [userFriends, setUserFriend] = useState(["Jason", "Hugh", "Blake", "Kade", "Kate", "Hayley", "Kanye", "Joseph"])
     const [userChats, setUserChat] = useState([])
   
-    const setUserNameFunc = (name) => { setUserName({ name }) }
-    const setUserEmailFunc = (email) => { setUserEmail({ email }) }
-    const setUserFriendFunc = (friend) => { setUserFriend({ ...userFriends, friend }) }
-    const setUserChatFunc = (chat) => { setUserChat({ ...userChats, chat }) }
+    const setUserNameFunc = (name) => { setUserName(name) }
+    const setUserEmailFunc = (email) => { setUserEmail(email) }
+    const setUserFriendFunc = (friend) => { setUserFriend([...userFriends, friend ]) }
+    const setUserChatFunc = (chat) => { setUserChat([...userChats, chat]) }
     
     
     return (
@@ -23,7 +23,9 @@ function HomePage () {
           <Route path="/allchats" element={ <AllChatsPage 
             userName={ userName } 
             userEmail={ userEmail }
-            userFriends={ userFriends }/> } />
+            userFriends={ userFriends }
+            setUserEmail={ setUserEmailFunc }
+            setUserName={ setUserNameFunc }/> } />
           <Route path="/chat" element={ <ChatPage /> } />
           <Route path="/signup" element={ <SignUpPage /> } />
           <Route path="/" element={ <LogInPage 
