@@ -1,24 +1,30 @@
-import DefaultLayout from "../Layout/DefaultLayout";
+import DefaultLayout from "../Layout/DefaultLayout"
 import '../Styles/LogIn.css'
 import logo from '../../images/bubble.svg'
+import React from 'react'
+import { useNavigate } from "react-router-dom"
 
-const logIn = (e) => {
-    e.preventDefault()
-    const form = e.target
-    const data = Object.fromEntries(new FormData(form))
+const LogInPage = ({ setUserEmail, setUserName }) => {
+    let navigate = useNavigate()
+    
+    async function logIn(event) {
+        event.preventDefault()
+        const data = Object.fromEntries(new FormData(event.target))
+        
+        await fetch('/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(user => { 
+            console.log(user)
+            setUserEmail(user.email)
+            setUserName(user.name)
+            navigate("/allchats")
+        })
+    }
 
-    console.log(data)
-
-    // fetch('/api/sessions', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(data)
-    // })
-    // .then(res => res.json())
-    // .then(res => console.log(res))
-}
-
-const LogInPage = () => {
     return (
         <DefaultLayout>
             <div className="visual">

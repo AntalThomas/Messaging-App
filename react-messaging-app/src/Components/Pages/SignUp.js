@@ -6,7 +6,7 @@ async function signUp(e) {
     e.preventDefault()
     const data = Object.fromEntries(new FormData(e.target))
 
-    const insertUser = await fetch('/users', {
+    await fetch('/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -29,7 +29,7 @@ const SignUpPage = () => {
                         <input className="signUpInput" type="password" placeholder="Password" name="password"/>
                     </div>
 
-                    <button><a href="/allchats">Create Account</a></button>
+                    <button>Create Account</button>
                 </form>
 
                 <a href="/">Back</a>

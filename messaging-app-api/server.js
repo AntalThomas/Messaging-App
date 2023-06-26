@@ -7,7 +7,7 @@ const User = require("./models/user")
 
 // Middlewares
 const logger = require('./middlewares/logger.js')
-// const sessions = require('./middlewares/sessions.js')
+const sessions = require('./middlewares/sessions.js')
 
 // Controllers
 // const usersController = require("./controllers/users_controller")
@@ -23,19 +23,49 @@ app.use(cors({
     credentials: true
 }))
 app.use(express.json())
-// app.use(sessions)
+app.use(sessions)
 // app.use(express.static('../react-messaging-app/public'))
 
 // Controller response to user
-app.post("/users", async (req, res) => {
+app.post("/signup", async (req, res) => {
     const { name, email, password } = req.body
     const passwordDigest = await bcrypt.hashSync(password, bcrypt.genSaltSync(12), null)
 
-    User
-        .create(name, email, passwordDigest)
-        .then(email => res.json(email))
-    console.log(req.body)
-    console.log(passwordDigest)
+    await User
+        .findByEmail(email)
+        .then(found => {
+            if (!found) {
+                User
+                    .create(name, email, passwordDigest)
+                    .then(email => res.json(email))
+            } else {
+                console.log("User Exists")
+            }
+        })
 })
 
-// app.use('/users', usersController)
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body
+
+    await User
+        .findByEmail(email)
+        .then(user => {
+            if (email === '' || password === '' || !user) {
+                return undefined
+            } else {
+                const isValidPassword = bcrypt.compareSync(password, user.password_digest)
+
+                if (user && isValidPassword) {
+                    req.session.userId = user.id
+
+                    console.log(`${user["name"]} logged in`)
+                    return res.status(200).json({
+                        message: "Successfully logged in",
+                        name: user["name"],
+                        email: user["email"]
+                    })
+                }
+            }
+        })
+})
+

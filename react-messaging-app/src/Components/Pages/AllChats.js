@@ -20,13 +20,18 @@ function signOut() {
     console.log('signout')
 }
 
-const AllChatsPage = () => {
+const AllChatsPage = ({ userName, userEmail }) => {
     return (
         <DefaultLayout>
             <section className="nav2">
                 <div className="userPictureBig2" onClick={ signOut }>A</div>
                 <input onChange={ searchFriends } className="searchChats" type="text" name="searchChats"/>
             </section>
+
+            <h1>
+                { console.log(userName, userEmail) }
+            </h1>
+
 
             <section onClick={ enterChat } className="allFriends">
                 <div className="friend" dataset="1">
