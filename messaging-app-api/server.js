@@ -44,7 +44,7 @@ app.post("/signup", async (req, res) => {
         })
 })
 
-app.post('/login', async (req, res) => {
+app.post("/login", async (req, res) => {
     const { email, password } = req.body
 
     await User
@@ -59,6 +59,7 @@ app.post('/login', async (req, res) => {
                     req.session.userId = user.id
 
                     console.log(`${user["name"]} logged in`)
+                    
                     return res.status(200).json({
                         message: "Successfully logged in",
                         name: user["name"],
@@ -69,3 +70,17 @@ app.post('/login', async (req, res) => {
         })
 })
 
+app.delete("/signout", async (req, res) => {
+    await req.session.destroy(error => {
+        res.clearCookie("user_sid")
+        res.json({ success: true})
+    })
+
+    console.log("DELETED")
+})
+
+app.get("/allusers", async (req, res) => {
+    await User
+        .selectAllUsers()
+        .then(users => console.log(users))
+})

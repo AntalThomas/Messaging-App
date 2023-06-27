@@ -29,8 +29,18 @@ const User = {
         `
 
         return db
-        .query(sql, [name, email, passwordDigest])
-        .then(dbRes => dbRes.rows[0].email)
+            .query(sql, [name, email, passwordDigest])
+            .then(dbRes => dbRes.rows[0].email)
+    },
+    selectAllUsers: () => {
+        const sql = `
+            SELECT * FROM users;
+            RETURNING *
+        `
+
+        return db
+            .query(sql)
+            .then(dbRes => dbRes.rows)
     }
 }
 

@@ -1,19 +1,29 @@
 import DefaultLayout from "../Layout/DefaultLayout";
 import '../Styles/LogIn.css'
 import logo from '../../images/bubble.svg'
+import { useNavigate } from "react-router-dom"
 
-async function signUp(e) {
-    e.preventDefault()
-    const data = Object.fromEntries(new FormData(e.target))
 
-    await fetch('/signup', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-    })
-}
+const SignUpPage = ({ setUserEmail, setUserName }) => {
+    let navigate = useNavigate()
 
-const SignUpPage = () => {
+    async function signUp(e) {
+        e.preventDefault()
+        const data = Object.fromEntries(new FormData(e.target))
+    
+        await fetch('/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(user => {
+                setUserEmail(user.email)
+                setUserName(user.name)
+                navigate("/allchats")
+            })
+    }
+
     return (
         <DefaultLayout>
             <div className="visual">

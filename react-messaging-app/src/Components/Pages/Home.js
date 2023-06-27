@@ -14,7 +14,7 @@ function HomePage () {
   
     const setUserNameFunc = (name) => { setUserName(name) }
     const setUserEmailFunc = (email) => { setUserEmail(email) }
-    const setUserFriendFunc = (friend) => { setUserFriend([...userFriends, friend ]) }
+    const setUserFriendFunc = (friend) => { setUserFriend([...userFriends, friend]) }
     const setUserChatFunc = (chat) => { setUserChat([...userChats, chat]) }
     
     
@@ -27,7 +27,9 @@ function HomePage () {
             setUserEmail={ setUserEmailFunc }
             setUserName={ setUserNameFunc }/> } />
           <Route path="/chat" element={ <ChatPage /> } />
-          <Route path="/signup" element={ <SignUpPage /> } />
+          <Route path="/signup" element={ <SignUpPage 
+            setUserEmail={ setUserEmailFunc }
+            setUserName={ setUserNameFunc }/> } />
           <Route path="/" element={ <LogInPage 
             setUserEmail={ setUserEmailFunc }
             setUserName={ setUserNameFunc }/> } />
